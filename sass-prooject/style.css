@@ -1,0 +1,35 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.container {
+  padding: 0 1rem;
+}
+
+body {
+  background-color: pink;
+  font-family: "tahoma";
+  font-size: 1.2rem;
+  color: white;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #30a7c3;
+}
+
+nav .brand img {
+  width: 80px;
+  border: #30a7c3;
+  border-radius: 30%;
+  padding: 10px;
+  margin: 10px;
+}
+/*# sourceMappingURL=style.css.map */
