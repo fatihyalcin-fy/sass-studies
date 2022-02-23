@@ -1,31 +1,132 @@
 @import "reset";
 @import "variables";
+@import "mixin";
+@import "article";
 
-.container{
-    padding: 0 1rem;
+.container {
+  padding: 0 1rem;
 }
 
-body{
-    background-color: $bgColor;
-    font-family: $fontFamily;
-    font-size: $fontSize;
-    color: $fontColor;
+body {
+  background-color: $bgColor;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  color: $fontColor;
 }
 
 //Nesting Usage
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: $navBgColor;
+  display: flex;
+  justify-content: space-between;
+  background-color: $navBgColor;
 
-    .brand{
-        img{
-            width: 80px;
-            border: $navBgColor;
-            border-radius: 30%;
-            padding: 10px;
-            margin: 10px;
-        }
+  .brand {
+    img {
+      width: 80px;
+      border: $navBgColor;
+      border-radius: 30%;
+      padding: 10px;
+      margin: 10px;
     }
+  }
+
+  .navbar {
+    margin: 10px;
+    ul {
+      list-style-type: none;
+      display: flex;
+
+      li {
+        a {
+          text-decoration: none;
+          padding: 5px;
+          color: white;
+          font-size: $myLinkSize;
+        }
+
+        input {
+          width: 60px;
+        }
+      }
+    }
+  }
 }
+
+//? SLIDER
+//?----------------------------------------
+.slider {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $sliderBgColor;
+  .left {
+    margin-top: 20px;
+    button {
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px;
+      background-color: $navBgColor;
+      font-size: $myLinkSize;
+      border: 2px solid gray;
+      color: white;
+
+      /***  IMPORTANT  ***/
+      &:hover {
+        background-color: pink;
+        border: 2px solid pink;
+      }
+    }
+  }
+  img {
+    width: 30%;
+  }
+}
+
+//! Mixin Usage
+
+.content {
+  .cards {
+    display: flex;
+    .card1 {
+      @include myBox(brown, white);
+    }
+    .card2 {
+      @include myBox(rgb(199, 255, 192), white);
+    }
+
+    .card3 {
+      @include myBox(blue, white);
+    }
+
+    .card4 {
+      @include myBox(green, white);
+    }
+  }
+}
+
+.socialBoxes {
+  display: flex;
+  @for $i from 1 through 5 {
+    .social#{$i} {
+      width: 20%;
+      height: 100px;
+      background-color: lighten(#000000, ($i * 10));
+    }
+  }
+}
+
+//!Array
+
+$textColor: #990000, #55004e, #0fa8a1, #121456, #64c217;
+@for $i from 1 through length($textColor) {
+  .social#{i} {
+    color: nth($textColor, $i);
+    font-size: $i * 1rem;
+    font-weight: 600;
+  }
+}
+
+.footer{
+    background-color: #0fa8a1;
+}
+
