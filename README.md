@@ -1,1 +1,1 @@
-# sass-studies
+Sass Studies
